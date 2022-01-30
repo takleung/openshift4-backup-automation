@@ -6,7 +6,7 @@ Cronjob **openshift-backup** resource  will be created and scheduled to run at 1
 
 ### Apply yaml to create Openshift resources
 
-`oc apply -f openshift4-backup.yaml`
+`oc apply -f https://raw.githubusercontent.com/takleung/openshift4-backup-automation/master/openshift4-backup.yaml`
 
 ### Privileged permissions
 
