@@ -72,11 +72,11 @@ spec:
         spec:
           containers:
             - name: backup
-              image: "registry.redhat.io/openshift4/ose-cli:v4.8"
+              image: "registry.redhat.io/openshift4/ose-cli:v4.9"
               command:
                 - "/bin/bash"
                 - "-c"
-                - oc get no -l node-role.kubernetes.io/master --no-headers -o name | xargs -I {} --  oc debug {} -- bash -c 'chroot /host sudo -E /usr/local/bin/cluster-backup.sh /home/core/backup/ && chroot /host sudo -E find /home/core/backup/ -type f -ctime +"2" -delete'
+                - oc get no -l node-role.kubernetes.io/master --no-headers -o name | xargs -I {} --  oc debug {} -- bash -c 'chroot /host sudo -E /usr/local/bin/cluster-backup.sh /home/core/backup/ && chroot /host sudo -E find /home/core/backup/ -type f -ctime +"30" -delete'
           restartPolicy: "Never"
           terminationGracePeriodSeconds: 30
           activeDeadlineSeconds: 600
